@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.example.contactsmanagerapp.AddContactActivityClickHandlers" />
+
+        <variable
+            name="contact"
+            type="com.example.contactsmanagerapp.ContactsModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddContactActivity"
+        android:background="@drawable/bg">
+
+        <EditText
+            android:id="@+id/enterContactName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="288dp"
+            android:autofillHints="name"
+            android:textColor="@color/white"
+            android:hint="Enter contact name ..."
+            android:inputType="text"
+            android:text="@={contact.name}"
+            android:textColorHint="#78909C"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText,VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/enterContactEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="emailAddress"
+            android:hint="Enter contact email ..."
+            android:textColor="@color/white"
+            android:inputType="textEmailAddress"
+            android:text="@={contact.email}"
+            android:textColorHint="#78909C"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterContactName"
+            tools:ignore="HardcodedText,VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/addContactToRoomDBBtn"
+            android:onClick="@{clickHandler::onAddContactToRoomDBBtnClicked}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add contact"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/enterContactEmail"
+            tools:ignore="HardcodedText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
